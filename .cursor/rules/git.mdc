@@ -1,0 +1,35 @@
+---
+description: Keep git history meaningful — commits and branches tell the project's story
+alwaysApply: true
+---
+
+# Git
+
+Git history is a narrative. Every commit and branch should tell a reader what happened and why.
+
+## Commits
+
+- Each commit represents one meaningful change — not a checkpoint, not a dump
+- Commit messages explain why the change was made, not what files were touched
+- If a commit message needs "and" to describe what it does, it should be two commits
+- Fix, then commit. Don't commit broken code with a "will fix later" promise
+
+## Branches
+
+- A branch represents a single piece of work — a feature, a fix, a refactoring
+- Branch names describe the work (e.g., `add-invoice-export`, `fix-token-expiry`)
+- Persistent branches (`main`, `dev`, `staging`) are the only ones that live long — everything else is short-lived and merged or deleted when done
+- Don't accumulate stale branches — if the work is done or abandoned, clean up
+
+## Flow
+
+- Commit often enough to not lose work, but not so often that the history becomes noise
+- Before merging, review the commit history — squash or rewrite if the story is unclear
+- A clean history means a future developer can `git log` and understand the evolution of the project
+
+## Smell Tests
+
+- A commit message that says "updates" or "wip" → not meaningful
+- A branch that's been open for weeks with no activity → stale, clean it up
+- A single commit that touches unrelated parts of the codebase → should be split
+- A merge commit that buries 30 undescribed commits → history lost

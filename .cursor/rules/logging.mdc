@@ -1,0 +1,32 @@
+---
+description: Suggest logging opportunities — ask the user when something is worth observing
+alwaysApply: true
+---
+
+# Logging & Observability
+
+Don't enforce logging everywhere. Instead, notice when something would benefit from being observable and ask.
+
+## When to Suggest
+
+Use your judgment. Suggest logging to the user when you encounter:
+
+- Operations that cross system boundaries (API calls, database queries, external services)
+- Error handling paths — if something fails, future-you wants to know what and why
+- State transitions that are hard to reproduce or debug (e.g., payment status changes, user role changes)
+- Long-running or async operations where progress or completion matters
+- Anything the user would say "I wish I had logged that" after a production incident
+
+## How to Suggest
+
+Don't add logging silently. Ask the user:
+
+- "This calls an external service — would you like to log the request and response?"
+- "This error is caught and translated — should we log the original error for debugging?"
+- "This changes the order status — worth logging the transition?"
+
+## If the User Says Yes
+
+- Log at the appropriate level (debug for noise, info for events, warn/error for problems)
+- Include enough context to be useful (what happened, to what, and any relevant IDs)
+- Never log sensitive data — respect the security rule

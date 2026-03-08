@@ -1,0 +1,32 @@
+---
+description: Split unrelated tasks and parallelize when possible
+alwaysApply: true
+---
+
+# Task Splitting
+
+When receiving multiple tasks in a single request, evaluate whether they are related or independent.
+
+- **Related tasks**: Tasks that share context, modify the same files, or depend on each other's output. Handle these together.
+- **Unrelated tasks**: Tasks with no shared context, different files, or no dependency between them. Split and handle independently.
+
+## Examples
+
+- **Related** (keep together): "Add a `name` field to the User model and update the registration form to include it." — Both touch the same feature.
+- **Unrelated** (split): "Fix the login bug and add a CSV export to the reports page." — Independent features with no shared context.
+
+## Behavior
+
+1. Before starting work, identify whether the request contains multiple unrelated tasks.
+2. If it does, create a todo list with one item per independent task.
+3. If unrelated tasks can be worked on in parallel (no shared files, no dependency), delegate them to separate subagents. Launch up to 4 concurrently.
+4. If tasks must be sequential (e.g., one depends on the other's output), complete each fully before starting the next.
+5. Do not mix changes from unrelated tasks in the same commit.
+
+## Subagent Reporting
+
+When delegating to subagents, instruct each to return:
+- A summary of what was done (files created, modified, or deleted)
+- Any decisions made or assumptions taken
+- Errors or warnings encountered
+- Whether the task is fully complete or needs follow-up

@@ -1,0 +1,33 @@
+---
+description: Enforce security basics — protect secrets, sanitize inputs, trust nothing
+alwaysApply: true
+---
+
+# Security
+
+Security is not a feature — it's a constraint that applies to every line of code.
+
+## Secrets
+
+- Never commit secrets, keys, tokens, or credentials to the repository
+- Use environment variables or a secrets manager — never hardcode
+- If a secret is accidentally committed, treat it as compromised — rotate it, don't just delete it from history
+
+## Inputs
+
+- Never trust input from outside your system — user input, API responses, query parameters, headers
+- Validate and sanitize at the boundary where external data enters your code
+- Reject invalid input early rather than trying to clean it up later
+
+## Exposure
+
+- Don't log sensitive data — passwords, tokens, personal information
+- Don't include internal details in error messages returned to the outside (stack traces, database errors, file paths)
+- Default to the least privilege — only grant the access that's needed, nothing more
+
+## Smell Tests
+
+- A hardcoded key or token anywhere in the codebase → compromised
+- An error response that includes a stack trace → information leak
+- User input passed directly to a query or command → injection risk
+- A `.env` file without a corresponding `.gitignore` entry → accident waiting to happen

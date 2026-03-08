@@ -1,0 +1,46 @@
+---
+description: Enforce testing of all public interfaces with comprehensive, descriptive tests
+alwaysApply: true
+---
+
+# Testing
+
+Every public interface must be tested. If it's accessible from outside its module, it needs a test that proves it works.
+
+## What Counts as Public
+
+- Exported functions, classes, and methods
+- API endpoints
+- Public methods on a class or module
+- Anything a consumer or another layer depends on
+
+## What Doesn't Need Direct Tests
+
+- Private methods and internal helpers — these are tested indirectly through the public interface that uses them
+- Implementation details that can change without affecting behavior
+
+## Tests as Documentation
+
+Tests are a living spec. A developer should be able to read the test suite and understand what the system does without reading the implementation.
+
+- Test names should describe the behavior, not the method (e.g., "rejects expired tokens" not "test validate")
+- **Group tests by behavior or scenario, not by method name**
+- Cover the happy path, edge cases, and failure modes — each as a clearly named case
+- If a test needs a comment to explain what it's doing, the test name or structure should be improved instead
+
+## Rules
+
+- The test suite must always be green — a failing test is a broken contract, not a reminder
+- Never merge or commit with failing tests — fix or remove them first
+- If a test needs to be temporarily disabled, it must have an explanation and a path to re-enable
+- When adding a new public interface, add tests for it in the same PR
+- When modifying a public interface's behavior, update its tests to reflect the change
+- Tests should verify behavior, not implementation — test what it does, not how it does it
+- If a bug is found, add a test that reproduces it before fixing it
+
+## Smell Tests
+
+- A public function with no tests → missing coverage
+- A test that breaks when internals are refactored but behavior hasn't changed → the test is too coupled
+- A test that mocks everything → it's testing nothing
+- A test name that says "test1" or "works correctly" → not descriptive enough

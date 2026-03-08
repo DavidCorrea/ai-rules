@@ -1,0 +1,42 @@
+---
+description: Keep code simple and efficient — no premature abstractions, no wasteful patterns
+alwaysApply: true
+---
+
+# Simplicity
+
+Write the least amount of code needed to solve the problem at hand. Nothing more. Make it efficient by default, but don't optimize what doesn't need optimizing.
+
+## Principles
+
+- Solve what's in front of you, not what might come later
+- Do not abstract until the same pattern has repeated at least three times
+- Prefer duplication over the wrong abstraction
+- If removing code doesn't break anything, it shouldn't have been there
+- Don't do work you don't need to — if you can avoid a call, a query, or an iteration, do
+- Don't fetch more than you need — load what's necessary, not everything available
+- Don't do in a loop what you can do in a batch
+
+## When Abstraction is Earned
+
+1. First time — just write it
+2. Second time — notice the similarity, but keep it inline
+3. Third time — now extract it, because you have three real examples to design the abstraction around
+
+This ensures abstractions are shaped by real usage, not speculation.
+
+## Performance
+
+- Correct first, fast later — never sacrifice clarity for performance without evidence
+- If you suspect a performance concern, mention it to the user rather than silently optimizing
+- Premature optimization creates complexity; measured optimization creates value
+
+## Smell Tests
+
+- A helper function used only once → premature abstraction
+- A generic solution for a problem that has only one instance → over-engineering
+- More code to support flexibility than to solve the actual problem → wrong tradeoff
+- A layer of indirection that makes the code harder to follow → simplify it
+- A loop with a query or API call inside it → likely N+1
+- Loading an entire collection to use one item → wasteful
+- An optimization that makes the code significantly harder to read → probably not worth it yet
