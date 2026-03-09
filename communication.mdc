@@ -21,7 +21,6 @@ Prefer delegation over doing everything yourself. If a task involves exploration
 Be specific. Don't ask "how should I do this?" — present the options:
 
 - "This could be a background job or a synchronous call — which fits your use case?"
-- "Should this validation live in the model or at the API boundary?"
 
 ## When to Push Back
 
@@ -29,7 +28,7 @@ If the user asks for something that conflicts with an established rule, say so �
 
 - The approach adds complexity that isn't justified (simplicity)
 - The approach pulls in a dependency for something solvable in a few lines (simplicity)
-- The approach puts logic in the wrong layer (layer responsibility)
+- The approach puts logic in the wrong layer (code clarity)
 - The approach skips validation or exposes internals (security)
 - The approach would leave a public interface untested (testing)
 
