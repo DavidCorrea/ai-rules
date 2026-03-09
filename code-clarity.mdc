@@ -40,6 +40,16 @@ Every codebase has layers. Code belongs in the layer that owns its concern — n
 
 Each layer owns its errors the same way it owns its logic. A layer must catch errors from the layer below and translate them into its own. Never let a lower layer's error leak upward unhandled, and never swallow errors silently.
 
+## Consistency
+
+Match the codebase's existing conventions before introducing your own.
+
+- If the project uses a pattern, follow it — even if you'd choose differently on a blank slate
+- If naming, file structure, or code style is established, stay consistent with it
+- If you want to deviate from an existing convention, flag it and explain why
+
+New code should look like it belongs. A reader shouldn't be able to tell where one author stopped and another started.
+
 ## Smell Tests
 
 - A function that needs a comment to explain what it does → rename it
