@@ -14,6 +14,7 @@ Code is read far more than it is written. Optimize for the reader.
 - Variables describe what they hold (e.g., `remaining_attempts`, `active_users`)
 - Booleans read as questions (e.g., `is_valid`, `has_access`)
 - Avoid abbreviations unless they are universally understood in the domain
+- Short-lived variables are still variables — a parameter named `c` in a block or callback forces every reader to decode it. `contract` is free clarity.
 
 ## Functions
 

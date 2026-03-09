@@ -14,11 +14,12 @@ When facing a decision that could go more than one way, ask. Don't guess and hop
 - **Scope decisions** — whether to include or exclude something that wasn't explicitly mentioned
 - **Destructive actions** — deleting, overwriting, migrating, or anything that's hard to undo
 - **Technology choices** — which library, framework, tool, or approach to use
+- **File and directory structure** — where to place new files, how to group modules, what to name directories
 
 ## When It's Fine to Decide
 
 - Implementation details that don't affect the user's mental model
-- Formatting, ordering, or structural choices within an already-agreed pattern
+- Formatting, ordering, or structural choices within an already-agreed pattern that don't introduce new directories, files, or naming conventions
 - Obvious next steps where only one reasonable path exists
 
 ## How to Ask

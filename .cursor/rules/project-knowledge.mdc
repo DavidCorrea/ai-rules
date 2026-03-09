@@ -1,5 +1,5 @@
 ---
-description: Maintain living project knowledge — domain glossary and codebase structure
+description: MUST check DOMAIN.md and STRUCTURE.md before starting any task
 alwaysApply: true
 ---
 
@@ -7,19 +7,17 @@ alwaysApply: true
 
 Maintain two living documents at the project root to preserve institutional knowledge across sessions.
 
-## Reading
+## Before Starting Any Task
 
-Before starting work, check if `DOMAIN.md` and `STRUCTURE.md` exist and read them. Use this context to inform naming, logic, navigation, and decisions.
+**First action in every session** — before reading files, writing code, or making any other tool call:
+
+1. Check whether `DOMAIN.md` and `STRUCTURE.md` exist at the project root
+2. If they exist, read them and use the context to inform naming, logic, navigation, and decisions
+3. If either file does not exist and the project has meaningful structure or domain concepts, suggest creating it
 
 ## Domain — `DOMAIN.md`
 
-A glossary of domain-specific knowledge. Suggest an update when you encounter a domain concept that is:
-
-- New and not yet captured in the file
-- Non-obvious enough that it would help future context
-- Something the user explicitly explains or corrects
-
-Always ask before writing to this file — don't update it silently. When the user explicitly asks you to capture something, always do so.
+A glossary of domain-specific knowledge.
 
 This includes:
 
@@ -28,15 +26,11 @@ This includes:
 - Relationships between domain concepts (e.g., "A Policy always belongs to a Holder")
 - Non-obvious business rules (e.g., "invoices can only be voided within 30 days")
 
+Always ask before writing to this file — don't update it silently. When the user explicitly asks you to capture something, always do so.
+
 ## Structure — `STRUCTURE.md`
 
-A map of how the codebase is organized. Suggest an update when:
-
-- The project is initialized or scaffolded
-- New top-level directories or modules are introduced
-- The user explains where something lives or why
-
-Always ask before writing to this file — don't update it silently.
+A map of how the codebase is organized.
 
 Capture:
 
@@ -44,6 +38,20 @@ Capture:
 - Key entry points (e.g., `src/index.ts` — app bootstrap)
 - Naming conventions (e.g., "controllers are named `[resource]_controller.rb`")
 - Where tests live relative to source (e.g., "tests mirror the src/ tree under test/")
+
+Always ask before writing to this file — don't update it silently.
+
+## After Completing Work
+
+Before finishing your response, check whether any of these happened:
+
+- [ ] Project was initialized or scaffolded → suggest `STRUCTURE.md` creation or update
+- [ ] New top-level directories or modules were introduced → suggest `STRUCTURE.md` update
+- [ ] User explained where something lives or why → suggest `STRUCTURE.md` update
+- [ ] A new or non-obvious domain concept appeared → suggest `DOMAIN.md` update
+- [ ] User explicitly explained or corrected a term → suggest `DOMAIN.md` update
+
+If any box applies, ask the user before the end of your response.
 
 ## Rules
 
