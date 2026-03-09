@@ -1,5 +1,5 @@
 ---
-description: Write code that reads like a story — clear names, small functions, obvious flow
+description: Write code that reads like a story — clear names, small functions, obvious flow, and each layer owning its concern
 alwaysApply: true
 ---
 
@@ -31,9 +31,31 @@ Code is read far more than it is written. Optimize for the reader.
 
 Code should be intention-revealing — if the reader needs a comment to understand what it does, the code should be rewritten, not annotated. Comments are valuable when they explain *why* — non-obvious business rules, tradeoffs, or constraints that the code alone can't convey.
 
+## Layer Responsibility
+
+Every codebase has layers. Code belongs in the layer that owns its concern — never in an adjacent one.
+
+- A layer must not contain logic that belongs to another layer
+- A layer must not know about the internals of layers it doesn't directly interact with
+- If code could be described as "doing [other layer]'s job," move it there
+- If a layer is getting large or doing too much, it's absorbing another layer's responsibility
+
+Each layer owns its errors the same way it owns its logic. A layer must catch errors from the layer below and translate them into its own. Never let a lower layer's error leak upward unhandled, and never swallow errors silently.
+
+## Consistency
+
+Match the codebase's existing conventions before introducing your own.
+
+- If the project uses a pattern, follow it — even if you'd choose differently on a blank slate
+- If naming, file structure, or code style is established, stay consistent with it
+- If you want to deviate from an existing convention, flag it and explain why
+
+New code should look like it belongs. A reader shouldn't be able to tell where one author stopped and another started.
+
 ## Smell Tests
 
 - A function that needs a comment to explain what it does → rename it
 - A variable named `data`, `info`, `temp`, or `result` → too vague
 - A function longer than ~20 lines → likely doing more than one thing
 - A conditional with 3+ levels of nesting → flatten with early returns or extraction
+- A controller rescuing a database error by name → layer leak
