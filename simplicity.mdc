@@ -16,7 +16,6 @@ Write the least amount of code needed to solve the problem at hand. Nothing more
 - Don't do work you don't need to — if you can avoid a call, a query, or an iteration, do
 - Don't fetch more than you need — load what's necessary, not everything available
 - Don't do in a loop what you can do in a batch
-- Fail explicitly — don't catch errors just to return a default. If something unexpected happens, surface it rather than hiding it behind a fallback.
 - When adding or changing code, remove anything it makes obsolete — dead imports, unused variables, orphaned files
 
 ## When Abstraction is Earned

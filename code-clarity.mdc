@@ -40,7 +40,14 @@ Every codebase has layers. Code belongs in the layer that owns its concern — n
 - If code could be described as "doing [other layer]'s job," move it there
 - If a layer is getting large or doing too much, it's absorbing another layer's responsibility
 
-Each layer owns its errors the same way it owns its logic. A layer must catch errors from the layer below and translate them into its own. Never let a lower layer's error leak upward unhandled, and never swallow errors silently.
+## Error Handling
+
+Each layer owns its errors the same way it owns its logic. Catch errors from the layer below and translate them into your own — never let a lower layer's error leak upward unhandled.
+
+- Expected failures (validation, not found, permission denied) are part of the domain — model them explicitly
+- Unexpected failures should surface loudly — don't swallow them behind a default
+- Errors should carry enough context to be actionable — what failed and with what input
+- Don't catch broad categories just to return a default — if you can't meaningfully recover, translate and re-raise, don't absorb
 
 ## Consistency
 
@@ -59,3 +66,6 @@ New code should look like it belongs. A reader shouldn't be able to tell where o
 - A function longer than ~20 lines → likely doing more than one thing
 - A conditional with 3+ levels of nesting → flatten with early returns or extraction
 - A controller rescuing a database error by name → layer leak
+- A catch block that returns `null` or an empty default → hiding a real problem
+- An error message with no context → useless to the person debugging it
+- Every function in a chain wrapping the same error → catch at the right level, once
