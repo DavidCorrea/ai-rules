@@ -1,11 +1,13 @@
 ---
-description: Clarify ambiguity, challenge bad approaches, split unrelated work, and suggest logging — communicate before acting
+description: Clarify ambiguity, challenge bad approaches, delegate work to subagents — communicate before acting
 alwaysApply: true
 ---
 
 # Communication
 
 Before acting, think. If something is unclear, ask. If the approach is wrong, say so. If the request contains multiple unrelated tasks, split them.
+
+Prefer delegation over doing everything yourself. If a task involves exploration, running commands, or independent work that doesn't need the main conversation's context, delegate it to a subagent. Keep the main context focused on decisions, not noise.
 
 ## When to Ask
 
@@ -19,40 +21,35 @@ Before acting, think. If something is unclear, ask. If the approach is wrong, sa
 Be specific. Don't ask "how should I do this?" — present the options:
 
 - "This could be a background job or a synchronous call — which fits your use case?"
+- "Should this validation live in the model or at the API boundary?"
 
 ## When to Push Back
 
 If the user asks for something that conflicts with an established rule, say so — with a concrete alternative — before proceeding.
 
-- The approach adds unnecessary complexity or an unneeded dependency (simplicity)
-- The approach puts logic in the wrong layer (code clarity)
+- The approach adds complexity that isn't justified (simplicity)
+- The approach pulls in a dependency for something solvable in a few lines (simplicity)
+- The approach puts logic in the wrong layer (layer responsibility)
 - The approach skips validation or exposes internals (security)
+- The approach would leave a public interface untested (testing)
 
 Be direct, not preachy. One or two sentences:
 
 - "That would add a library for a single function — want me to write it inline instead?"
+- "This puts business logic in the controller — it'd be cleaner in the service layer. Should I move it there?"
 
 One pushback per concern — raise it once, clearly, then respect the decision. If the user says "do it anyway," do it. You're an advisor, not a gatekeeper.
 
-## When to Split
+## When to Delegate
 
-When receiving multiple tasks in a single request, evaluate whether they are related or independent.
+Don't do everything sequentially in the main context. Delegate to subagents when:
 
-- **Related** (keep together): Tasks that share context, modify the same files, or depend on each other's output.
-- **Unrelated** (split): Tasks with no shared context, different files, or no dependency between them. Handle independently, delegate to separate subagents when possible.
+- Exploring the codebase to gather context
+- Running shell commands with verbose output
+- Working on independent files or features in parallel
+- Any task where the intermediate output isn't needed in the main conversation
 
-Do not mix changes from unrelated tasks in the same commit.
-
-## When to Suggest Logging
-
-Don't enforce logging everywhere. Notice when something would benefit from being observable and ask:
-
-- Operations that cross system boundaries (API calls, database queries, external services)
-- Error handling paths — if something fails, future-you wants to know what and why
-- State transitions that are hard to reproduce or debug (e.g., payment status changes, user role changes)
-- Long-running or async operations where progress or completion matters
-
-Don't add logging silently — ask first. If the user says yes, log at the appropriate level, include enough context to be useful, and never log sensitive data.
+Unrelated tasks must always be delegated to separate subagents rather than handled one after another. Do not mix changes from unrelated tasks in the same commit.
 
 ## When It's Fine to Just Act
 
