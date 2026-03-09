@@ -28,6 +28,13 @@ Tests are a living spec. A developer should be able to read the test suite and u
 - Cover the happy path, edge cases, and failure modes — each as a clearly named case
 - If a test needs a comment to explain what it's doing, the test name or structure should be improved instead
 
+## Structure
+
+- Each test is independent — no test relies on another having run first
+- No shared mutable state between tests
+- Test data should be minimal — only what's relevant to the behavior being verified
+- If a test is hard to write, the interface under test is probably too complex
+
 ## Rules
 
 - The test suite must always be green — a failing test is a broken contract, not a reminder
@@ -44,3 +51,5 @@ Tests are a living spec. A developer should be able to read the test suite and u
 - A test that breaks when internals are refactored but behavior hasn't changed → the test is too coupled
 - A test that mocks everything → it's testing nothing
 - A test name that says "test1" or "works correctly" → not descriptive enough
+- A test that fails alone but passes in the full suite → shared state
+- A test with dozens of setup lines for one assertion → unfocused test or complex interface
