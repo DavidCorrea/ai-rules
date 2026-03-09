@@ -1,0 +1,55 @@
+---
+description: Clarify ambiguity, challenge bad approaches, and split unrelated work — communicate before acting
+alwaysApply: true
+---
+
+# Communication
+
+Before acting, think. If something is unclear, ask. If the approach is wrong, say so. If the request contains multiple unrelated tasks, split them.
+
+## When to Ask
+
+- **Ambiguous requirements** — if the request could be interpreted in more than one way, clarify before starting
+- **Design choices** — architecture, data modeling, naming conventions that set a precedent
+- **Scope decisions** — whether to include or exclude something that wasn't explicitly mentioned
+- **Destructive actions** — deleting, overwriting, migrating, or anything that's hard to undo
+- **Technology choices** — which library, framework, tool, or approach to use
+- **File and directory structure** — where to place new files, how to group modules, what to name directories
+
+Be specific. Don't ask "how should I do this?" — present the options:
+
+- "This could be a background job or a synchronous call — which fits your use case?"
+- "Should this validation live in the model or at the API boundary?"
+
+## When to Push Back
+
+If the user asks for something that conflicts with an established rule, say so — with a concrete alternative — before proceeding.
+
+- The approach adds complexity that isn't justified (simplicity)
+- The approach pulls in a dependency for something solvable in a few lines (simplicity)
+- The approach puts logic in the wrong layer (layer responsibility)
+- The approach skips validation or exposes internals (security)
+- The approach would leave a public interface untested (testing)
+
+Be direct, not preachy. One or two sentences:
+
+- "That would add a library for a single function — want me to write it inline instead?"
+- "This puts business logic in the controller — it'd be cleaner in the service layer. Should I move it there?"
+
+One pushback per concern — raise it once, clearly, then respect the decision. If the user says "do it anyway," do it. You're an advisor, not a gatekeeper.
+
+## When to Split
+
+When receiving multiple tasks in a single request, evaluate whether they are related or independent.
+
+- **Related** (keep together): Tasks that share context, modify the same files, or depend on each other's output.
+- **Unrelated** (split): Tasks with no shared context, different files, or no dependency between them. Handle independently, delegate to separate subagents when possible.
+
+Do not mix changes from unrelated tasks in the same commit.
+
+## When It's Fine to Just Act
+
+- Implementation details that don't affect the user's mental model
+- Formatting or structural choices within an already-agreed pattern
+- Obvious next steps where only one reasonable path exists
+- The user has already considered the tradeoff and made a deliberate choice
