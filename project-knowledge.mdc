@@ -43,20 +43,10 @@ Always ask before writing to this file — don't update it silently.
 
 ## After Completing Work
 
-Before finishing your response, check whether any of these happened:
-
-- [ ] Project was initialized or scaffolded → suggest `STRUCTURE.md` creation or update
-- [ ] New top-level directories or modules were introduced → suggest `STRUCTURE.md` update
-- [ ] User explained where something lives or why → suggest `STRUCTURE.md` update
-- [ ] A new or non-obvious domain concept appeared → suggest `DOMAIN.md` update
-- [ ] User explicitly explained or corrected a term → suggest `DOMAIN.md` update
-
-If any box applies, ask the user before the end of your response.
+If the project structure or domain concepts changed during this session, suggest updating `STRUCTURE.md` or `DOMAIN.md`. Always ask before writing.
 
 ## Rules
 
 - Never remove existing entries — only add or refine
-- Don't duplicate what's already there
 - Keep definitions in plain language, not implementation details
-- Keep structure high-level — describe directories and patterns, not individual files
 - If the user corrects something, update the entry

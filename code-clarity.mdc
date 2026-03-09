@@ -56,7 +56,4 @@ New code should look like it belongs. A reader shouldn't be able to tell where o
 - A variable named `data`, `info`, `temp`, or `result` → too vague
 - A function longer than ~20 lines → likely doing more than one thing
 - A conditional with 3+ levels of nesting → flatten with early returns or extraction
-- A layer references concepts it shouldn't know about → leaking upward
-- A layer makes decisions that aren't its concern → leaking downward
 - A controller rescuing a database error by name → layer leak
-- A catch block that does nothing → swallowed error

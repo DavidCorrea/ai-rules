@@ -45,12 +45,8 @@ Wrap external libraries behind your own interface. Your code depends on the wrap
 ## Smell Tests
 
 - A helper function used only once → premature abstraction
-- A generic solution for a problem that has only one instance → over-engineering
-- More code to support flexibility than to solve the actual problem → wrong tradeoff
 - A layer of indirection that makes the code harder to follow → simplify it
 - A loop with a query or API call inside it → likely N+1
 - Loading an entire collection to use one item → wasteful
-- An optimization that makes the code significantly harder to read → probably not worth it yet
 - A dependency added for a single utility function → write it yourself
 - Third-party types or errors showing up in your domain layer → missing wrapper
-- A dependency with no updates in over a year → evaluate if it's still the right choice
