@@ -1,19 +1,19 @@
 ---
-description: MUST check DOMAIN.md and STRUCTURE.md before starting any task
+description: MUST check DOMAIN.md, STRUCTURE.md, and IMPROVEMENTS.md before starting any task
 alwaysApply: true
 ---
 
 # Project Knowledge
 
-Maintain two living documents at the project root to preserve institutional knowledge across sessions.
+Maintain living documents at the project root to preserve institutional knowledge across sessions.
 
 ## Before Starting Any Task
 
 **First action in every session** — before reading files, writing code, or making any other tool call:
 
-1. Check whether `DOMAIN.md` and `STRUCTURE.md` exist at the project root
+1. Check whether `DOMAIN.md`, `STRUCTURE.md`, and `IMPROVEMENTS.md` exist at the project root
 2. If they exist, read them and use the context to inform naming, logic, navigation, and decisions
-3. If either file does not exist and the project has meaningful structure or domain concepts, suggest creating it
+3. If `DOMAIN.md` or `STRUCTURE.md` do not exist and the project has meaningful structure or domain concepts, suggest creating them
 
 ## Domain — `DOMAIN.md`
 
@@ -41,12 +41,23 @@ Capture:
 
 Always ask before writing to this file — don't update it silently.
 
+## Improvements — `IMPROVEMENTS.md`
+
+A log of structural observations noticed during work but out of scope for the current task.
+
+Record things tooling can't catch — design concerns, refactoring candidates, missing coverage patterns. Don't record quick fixes the agent can just do, or linter-level issues.
+
+Each entry must include what was observed, where, and why it matters.
+
+Append without asking. Never modify or remove existing entries.
+
 ## After Completing Work
 
-If the project structure or domain concepts changed during this session, suggest updating `STRUCTURE.md` or `DOMAIN.md`. Always ask before writing.
+If the project structure or domain concepts changed during this session, suggest updating `STRUCTURE.md` or `DOMAIN.md`. Always ask before writing. `IMPROVEMENTS.md` does not need this check — it's written to during work, not after.
 
 ## Rules
 
-- Never remove existing entries — only add or refine
+- `DOMAIN.md` and `STRUCTURE.md`: never remove existing entries — only add or refine
+- `IMPROVEMENTS.md`: append-only — never modify or remove existing entries
 - Keep definitions in plain language, not implementation details
 - If the user corrects something, update the entry
