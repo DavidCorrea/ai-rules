@@ -12,6 +12,7 @@ Git history is a narrative. Every commit and branch should tell a reader what ha
 - Each commit represents one meaningful change — not a checkpoint, not a dump
 - Commit messages explain why the change was made, not what files were touched
 - If a commit message needs "and" to describe what it does, it should be two commits
+- If a commit touches more than a handful of files, pause and consider whether it can be split — if it can't, ask the user before committing
 - Fix, then commit. Don't commit broken code with a "will fix later" promise
 
 ## Branches
