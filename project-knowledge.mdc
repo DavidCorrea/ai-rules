@@ -1,5 +1,5 @@
 ---
-description: MUST check DOMAIN.md, STRUCTURE.md, and IMPROVEMENTS.md before starting any task
+description: Check project knowledge files before reading or modifying code
 alwaysApply: true
 ---
 
