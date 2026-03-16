@@ -41,6 +41,7 @@ Tests are a living spec. A developer should be able to read the test suite and u
 - The test suite must always be green — a failing test is a broken contract, not a reminder
 - Never merge or commit with failing tests — fix or remove them first
 - If a test needs to be temporarily disabled, it must have an explanation and a path to re-enable
+- If no test infrastructure exists, ask before setting one up — choosing a test framework is a technology decision
 - When adding a new public interface, add tests for it in the same PR
 - When modifying a public interface's behavior, update its tests to reflect the change
 - Tests should verify behavior, not implementation — test what it does, not how it does it
