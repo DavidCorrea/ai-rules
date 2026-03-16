@@ -32,7 +32,7 @@ Code should be intention-revealing — if the reader needs a comment to understa
 
 ## Layer Responsibility
 
-Every codebase has layers. Code belongs in the layer that owns its concern — never in an adjacent one.
+When a codebase has layers, code belongs in the layer that owns its concern — never in an adjacent one.
 
 - A layer must not contain logic that belongs to another layer
 - A layer must not know about the internals of layers it doesn't directly interact with
