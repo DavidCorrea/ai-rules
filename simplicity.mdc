@@ -50,4 +50,4 @@ If an external library is used across multiple parts of your codebase, wrap it b
 - A loop with a query or API call inside it → likely N+1
 - Loading an entire collection to use one item → wasteful
 - A dependency added for a single utility function → write it yourself
-- Third-party types or errors showing up in your domain layer → missing wrapper
+- Third-party types or errors spreading across your domain layer → missing wrapper
