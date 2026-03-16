@@ -54,7 +54,7 @@ If the concern is a security risk, raise it with the user immediately — don't 
 
 Each entry must include what was observed, where, and why it matters.
 
-Append without asking. Remove an entry only when the concern it describes has been fully addressed.
+Append without asking. Ask before removing an entry — only remove when the concern it describes has been fully addressed.
 
 ## After Completing Work
 
@@ -63,6 +63,6 @@ If the project structure or domain concepts changed during this session, suggest
 ## Rules
 
 - `DOMAIN.md` and `STRUCTURE.md`: never remove existing entries — only add or refine
-- `IMPROVEMENTS.md`: append new entries without asking — remove an entry only when the concern has been fully addressed
+- `IMPROVEMENTS.md`: append new entries without asking — ask before removing, only when the concern has been fully addressed
 - Keep definitions in plain language, not implementation details
 - If the user corrects something, update the entry
