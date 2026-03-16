@@ -9,7 +9,7 @@ Maintain living documents at the project root to preserve institutional knowledg
 
 ## Before Starting Any Task
 
-**First action in every session** — before reading files, writing code, or making any other tool call:
+**First action in any session where you will read or modify code** — before writing code or making structural decisions:
 
 1. Check whether `DOMAIN.md`, `STRUCTURE.md`, and `IMPROVEMENTS.md` exist at the project root
 2. If they exist, read them and use the context to inform naming, logic, navigation, and decisions
