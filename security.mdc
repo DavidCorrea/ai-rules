@@ -1,5 +1,5 @@
 ---
-description: Enforce security basics — protect secrets, sanitize inputs, trust nothing
+description: Enforce security basics — protect secrets, validate inputs, trust nothing
 alwaysApply: true
 ---
 
