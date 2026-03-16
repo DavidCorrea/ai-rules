@@ -33,6 +33,7 @@ Tests are a living spec. A developer should be able to read the test suite and u
 - Each test is independent — no test relies on another having run first
 - No shared mutable state between tests
 - Test data should be minimal — only what's relevant to the behavior being verified
+- Mock what you don't own — HTTP requests, third-party APIs, external services. Don't mock your own code.
 - If a test is hard to write, the interface under test is probably too complex
 
 ## Rules
