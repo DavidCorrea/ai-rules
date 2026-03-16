@@ -35,7 +35,7 @@ Every dependency is a tradeoff — convenience now for maintenance later.
 - Prefer widely-adopted, actively-maintained dependencies over niche or abandoned ones
 - Fewer dependencies is always better, all else being equal
 
-Wrap external libraries behind your own interface. Your code depends on the wrapper, not the library. If the library is replaced, only the wrapper changes.
+If an external library is used across multiple parts of your codebase, wrap it behind your own interface — your code depends on the wrapper, not the library. If the library is only used in one place, wrapping it is premature.
 
 ## Performance
 
