@@ -19,7 +19,7 @@ Code is read far more than it is written. Optimize for the reader.
 ## Functions
 
 - A function should do one thing and its name should say what that thing is
-- Keep functions short — if it doesn't fit on a screen, it's doing too much
+- Keep functions short — if it's longer than ~20 lines, it's likely doing too much
 - Prefer early returns over deeply nested conditionals
 
 ## Flow
