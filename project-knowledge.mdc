@@ -25,6 +25,9 @@ This includes:
 - Abbreviations and acronyms used in the codebase or by the user
 - Relationships between domain concepts (e.g., "A Policy always belongs to a Holder")
 - Non-obvious business rules (e.g., "invoices can only be voided within 30 days")
+- Business decisions and their reasoning (e.g., "soft deletes everywhere — legal requires audit trails")
+
+When a business rule has a known reason, include it. If the user states a rule without explaining why, ask — a rule without its reasoning looks arbitrary and is easier to accidentally undo.
 
 Always ask before writing to this file — don't update it silently. When the user explicitly asks you to capture something, always do so.
 
