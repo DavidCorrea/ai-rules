@@ -27,7 +27,7 @@ Code is read far more than it is written. Optimize for the reader.
 
 - Code should read top-to-bottom like a story — setup, action, result
 - The happy path should be the main flow; edge cases and errors handled early and out of the way
-- If a reader has to jump between files to understand a single operation, the code is too scattered
+- If a reader has to jump between files within the same layer to understand a single operation, the code is too scattered
 
 Code should be intention-revealing — if the reader needs a comment to understand what it does, the code should be rewritten, not annotated. Comments are valuable when they explain *why* — non-obvious business rules, tradeoffs, or constraints that the code alone can't convey.
 
@@ -42,7 +42,7 @@ Every codebase has layers. Code belongs in the layer that owns its concern — n
 
 ## Error Handling
 
-Each layer owns its errors the same way it owns its logic. Catch errors from the layer below and translate them into your own — never let a lower layer's error leak upward unhandled.
+Each layer owns its errors the same way it owns its logic. Catch errors at layer boundaries and translate them into your own — don't let a lower layer's error leak upward unhandled. Within a layer, let errors propagate naturally rather than wrapping at every function.
 
 - Expected failures (validation, not found, permission denied) are part of the domain — model them explicitly
 - Unexpected failures should surface loudly — don't swallow them behind a default
