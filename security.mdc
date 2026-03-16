@@ -16,7 +16,7 @@ Security is not a feature — it's a constraint that applies to every line of co
 ## Inputs
 
 - Never trust input from outside your system — user input, API responses, query parameters, headers
-- Validate and sanitize at the boundary where external data enters your code
+- Validate at the boundary where external data enters your code
 - Reject invalid input early rather than trying to clean it up later
 
 ## Exposure
