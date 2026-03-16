@@ -25,9 +25,23 @@ Security is not a feature — it's a constraint that applies to every line of co
 - Don't include internal details in error messages returned to the outside (stack traces, database errors, file paths)
 - Default to the least privilege — only grant the access that's needed, nothing more
 
+## Dynamic Execution
+
+- Never pass untrusted input to `eval`, `exec`, or any dynamic code execution mechanism
+- Never construct queries or commands by concatenating input — use parameterized queries, prepared statements, or safe builder APIs
+- Never deserialize untrusted data without validation — treat serialized input as external input
+
+## Defaults
+
+- Security-relevant settings should default to the most restrictive option — opt in to permissiveness, not out of it
+- If a function accepts a configuration that affects security (e.g., disabling verification, allowing all origins), the safe option should be the default
+
 ## Smell Tests
 
 - A hardcoded key or token anywhere in the codebase → compromised
 - An error response that includes a stack trace → information leak
 - User input passed directly to a query or command → injection risk
 - A `.env` file without a corresponding `.gitignore` entry → accident waiting to happen
+- An `eval` or dynamic execution with variable input → code injection
+- A security setting that defaults to permissive → unsafe default
+- Deserialization of external data without validation → trust boundary violation
