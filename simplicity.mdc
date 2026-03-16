@@ -12,7 +12,7 @@ Write the least amount of code needed to solve the problem at hand. Nothing more
 - Solve what's in front of you, not what might come later
 - Do not abstract until the same pattern has repeated at least three times
 - Prefer duplication over the wrong abstraction
-- If removing code doesn't break anything, it shouldn't have been there
+- Dead code — unreachable paths, unused variables, redundant checks — should be removed, not left "just in case"
 - Don't do work you don't need to — if you can avoid a call, a query, or an iteration, do
 - Don't fetch more than you need — load what's necessary, not everything available
 - Don't do in a loop what you can do in a batch
