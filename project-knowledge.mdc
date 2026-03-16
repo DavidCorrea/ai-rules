@@ -46,13 +46,15 @@ Always ask before writing to this file — don't update it silently.
 
 ## Improvements — `IMPROVEMENTS.md`
 
-A log of structural observations noticed during work but out of scope for the current task.
+A log of quality concerns noticed during work but out of scope for the current task.
 
-Record things tooling can't catch — design concerns, refactoring candidates, missing coverage patterns. Don't record quick fixes the agent can just do, or linter-level issues.
+Record things tooling can't catch — design concerns, security issues, refactoring candidates, missing test coverage, layer violations. Don't record quick fixes the agent can just do, or linter-level issues.
+
+If the concern is a security risk, raise it with the user immediately — don't just log it.
 
 Each entry must include what was observed, where, and why it matters.
 
-Append without asking. Never modify or remove existing entries.
+Append without asking. Remove an entry only when the concern it describes has been fully addressed.
 
 ## After Completing Work
 
@@ -61,6 +63,6 @@ If the project structure or domain concepts changed during this session, suggest
 ## Rules
 
 - `DOMAIN.md` and `STRUCTURE.md`: never remove existing entries — only add or refine
-- `IMPROVEMENTS.md`: append-only — never modify or remove existing entries
+- `IMPROVEMENTS.md`: append new entries without asking — remove an entry only when the concern has been fully addressed
 - Keep definitions in plain language, not implementation details
 - If the user corrects something, update the entry
